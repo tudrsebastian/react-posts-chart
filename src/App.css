@@ -1,0 +1,9 @@
+.App {
+  max-width: 940px;
+  height: 600px;
+  margin: 0 auto;
+}
+
+.graph {
+  padding-top: 9.5vw;
+}

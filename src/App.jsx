@@ -1,9 +1,10 @@
 import "./App.css";
 import { useQuery, gql } from "@apollo/client";
+import { Graph } from "./Components";
 function App() {
   const GET_ALLPOSTS = gql`
     query getAllPosts {
-      allPosts(count: 100) {
+      allPosts(count: 1000) {
         id
         createdAt
       }
@@ -14,12 +15,10 @@ function App() {
   if (error) return <p>Error : {error.message}</p>;
   const posts = data.allPosts;
   const date = posts.map((post) => new Date(+post.createdAt));
-  console.log(JSON.stringify(date[0]));
-  const month = JSON.stringify(date[92]);
-  console.log(month.slice(6, 8));
+
   return (
     <div className="App">
-      <h2>Hello</h2>
+      <Graph props={date} />
     </div>
   );
 }
